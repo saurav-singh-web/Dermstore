@@ -12,7 +12,13 @@ export function protect(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = { id: decoded.userId }; // Attach user info to request
+    const userId = decoded.userId || decoded.id;
+
+    if (!userId) {
+      return res.status(401).json({ message: "Invalid token payload" });
+    }
+
+    req.user = { id: userId };
     next();
   } catch (err) {
     console.error("JWT Error:", err.message);

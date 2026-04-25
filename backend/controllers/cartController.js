@@ -68,7 +68,7 @@ export const updateCart = async (req, res, next) => {
           subTotal: subtotal,
           totalQuantity,
           discountAmount,
-          totalPrice, // ✅ Final price after applying discount
+          totalPrice,
           couponCode,
         },
       },
