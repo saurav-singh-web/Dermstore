@@ -19,7 +19,7 @@ app.use(cors({
     const allowed = [
       'http://localhost:5173',
       'http://localhost:5174',
-      'https://dermstore.vercel.app'
+      'https://dermstore-rho.vercel.app'
     ];
     if (!origin || allowed.includes(origin)) {
       callback(null, true);
